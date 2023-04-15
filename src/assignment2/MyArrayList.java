@@ -110,6 +110,28 @@ public class MyArrayList<T> implements MyList<T>{
         return -1;
     }
 
+    @Override
+    public boolean contains(T o) {
+        return indexOf(o) != -1;
+    }
+
+    @Override
+    public void sort() {
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                Comparable<T> item1 = (Comparable<T>) arr[j];
+                Comparable<T> item2 = (Comparable<T>) arr[j+1];
+                if (item1.compareTo((T) item2) > 0) {
+                    Object temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+
+
 
 
 

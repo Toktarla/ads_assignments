@@ -1,5 +1,7 @@
 package assignment2;
 
+import java.util.Iterator;
+
 public class MyArrayList<T> implements MyList<T>{
 
     private static Object[] arr;
@@ -127,6 +129,25 @@ public class MyArrayList<T> implements MyList<T>{
                     arr[j+1] = temp;
                 }
             }
+        }
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new MyIterator();
+    }
+
+    private class MyIterator implements Iterator<Object> {
+        private int cursor;
+
+        @Override
+        public boolean hasNext() {
+            return cursor < size();
+        }
+
+        @Override
+        public Object next() {
+            return get(cursor++);
         }
     }
 

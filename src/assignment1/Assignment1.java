@@ -1,6 +1,10 @@
+package assignment1;
+
 public class Assignment1 {
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        permutation("ABC");
+    }
 
 
     public static int getMin(int[] arr, int len,int currentIndex, int min) {
@@ -15,12 +19,6 @@ public class Assignment1 {
         }
 
         return getMin(arr,len,currentIndex+1,min);
-
-
-
-
-
-
     }
 
     private static double getAverageRecursive(int[] arr, int n, int currentIndex, int currentSum) {

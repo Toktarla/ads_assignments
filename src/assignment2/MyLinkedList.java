@@ -124,6 +124,64 @@ public class MyLinkedList<T> implements MyList<T> {
         return -1;
     }
 
+    // Removes the first occurrence of a specified data from the linked list
+    @Override
+    public boolean remove(T obj) {
+        Node current = head;
+        while (current != null) {
+            if (current.data.equals(obj)) {
+                if (current.prev == null) { // removing head
+                    head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    }
+                } else if (current.next == null) { // removing tail
+                    tail = current.prev;
+                    tail.next = null;
+                } else { // removing from middle
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    // Removes the node at a specified index
+    @Override
+    public T removeAtIndex(int index) {
+
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        if (current.prev == null) { // removing head
+            head = current.next;
+            if (head != null) {
+                head.prev = null;
+            }
+        } else if (current.next == null) { // removing tail
+            tail = current.prev;
+            tail.next = null;
+        } else { // removing from middle
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+        size--;
+        return current.data;
+    }
+
+    // Removes all nodes from the linked list
+    @Override
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
 
 
 

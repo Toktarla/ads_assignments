@@ -3,16 +3,27 @@ The MyList interface is a generic interface that specifies a collection of metho
 
 # Methods
 size(): returns the number of elements in the list.
+
 contains(T o): returns true if the list contains the specified element, false otherwise.
+
 add(T item): appends the specified element to the end of the list.
+
 addAtIndex(T item, int index): inserts the specified element at the specified position in the list, shifting the element currently at that position (if any) and any subsequent elements to the right.
+
 remove(T item): removes the first occurrence of the specified element from the list, if it is present. Returns true if the element was successfully removed, false otherwise.
+
 removeAtIndex(int index): removes the element at the specified position in the list, shifting any subsequent elements to the left. Returns the element that was removed.
+
 clear(): removes all elements from the list.
+
 get(int index): returns the element at the specified position in the list.
+
 indexOf(T o): returns the index of the first occurrence of the specified element in the list, or -1 if the list does not contain the element.
+
 lastIndexOf(T o): returns the index of the last occurrence of the specified element in the list, or -1 if the list does not contain the element.
+
 sort(): sorts the elements of the list in ascending order according to their natural ordering, or according to a specified comparator.
+
 
 
 

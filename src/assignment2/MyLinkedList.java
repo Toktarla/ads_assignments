@@ -1,5 +1,7 @@
 package assignment2;
 
+import java.util.Iterator;
+
 public class MyLinkedList<T> implements MyList<T> {
 
     private class Node {
@@ -180,6 +182,52 @@ public class MyLinkedList<T> implements MyList<T> {
         head = null;
         tail = null;
         size = 0;
+    }
+
+    // Sorts the linked list in ascending order using the compareTo() method
+    @Override
+    public void sort() {
+
+        if (size <= 1){
+            return;
+        }
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i -1; j++) {
+                Comparable<T> item1 = (Comparable<T>) get(j);
+                Comparable<T> item2 = (Comparable<T>) get(j+1);
+
+
+                if (item1.compareTo((T) item2) > 0) {
+                    T temp = get(j);
+                    set(j, get(j + 1));
+                    set(j + 1, temp);
+                }
+            }
+
+        }
+
+    }
+
+    // Returns an iterator object that can be used to traverse the linked list
+    @Override
+    public Iterator<T> iterator() {
+        return new MyIterator();
+    }
+
+    private class MyIterator implements Iterator<T>{
+        Node cursor = head;
+
+        @Override
+        public boolean hasNext() {
+            return cursor != null;
+        }
+
+        @Override
+        public T next() {
+            T data = cursor.data;
+            cursor = cursor.next;
+            return data;
+        }
     }
 
 

@@ -85,6 +85,31 @@ public class MyArrayList<T> implements MyList<T>{
         size = 0;
     }
 
+    @Override
+    public T get(int index) {
+        if (index >= size) throw new IndexOutOfBoundsException();
+        return (T) arr[index];
+    }
+
+    @Override
+    public int indexOf(T o) {
+        for (int i = 0; i < size; i++) {
+            if (o == arr[i]) return i;
+        }
+        return -1;
+    }
+
+    @Override
+    public int lastIndexOf(T o) {
+        for (int i = size; i >= 0; i--) {
+            if (arr[i] == o) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
 
 
 

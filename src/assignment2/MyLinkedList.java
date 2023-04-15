@@ -24,6 +24,31 @@ public class MyLinkedList<T> implements MyList<T> {
 
     public MyLinkedList(){}
 
+    // Prints each Node of linked list
+    public void traverse() {
+        Node currentNode = head;
+        while (currentNode != null) {
+            System.out.print(currentNode.data + " ");
+            currentNode = currentNode.next;
+        }
+        System.out.println();
+    }
+
+
+    // Replaces the data at a specified index with a new data
+    public T set(int index, T item) {
+
+        Node current = head;
+        for(int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        T oldValue = current.data;
+        current.data = item;
+
+        return oldValue;
+    }
+
     // Returns the number of nodes in the linked list
     @Override
     public int size() {

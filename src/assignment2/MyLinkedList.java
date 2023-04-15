@@ -73,6 +73,59 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
+    // Returns the data at a specified index
+    @Override
+    public T get(int index) {
+        Node current = head;
+        if (index == 0){
+            return current.data;
+        }
+
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        return current.data;
+    }
+
+    // Returns true if the linked list contains a specified data
+    @Override
+    public boolean contains(T o) {
+        return indexOf(o) != -1;
+    }
+
+    // Returns the index of the first occurrence of a specified data
+    @Override
+    public int indexOf(T o) {
+        Node current = head;
+        int index = 0;
+        while (current != null){
+            if (current.data.equals(o)){
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    // Returns the index of the last occurrence of a specified data
+    @Override
+    public int lastIndexOf(T o) {
+        Node current = tail;
+        int index = size - 1;
+        while (current != null){
+            if (current.data.equals(o)){
+                return index;
+            }
+            current = current.prev;
+            index--;
+        }
+        return -1;
+    }
+
+
+
 
 
 
